@@ -56,7 +56,7 @@ public class JwtProvider {
 
     public boolean validateToken(HttpServletRequest request) {
         String token = getToken(request);
-        if (userJwtService.getUserByUserId(getUserId(token)) == null) {
+        if (token == null || userJwtService.getUserByUserId(getUserId(token)) == null) {
             return false;
         }
         try {

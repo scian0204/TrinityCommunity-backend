@@ -31,8 +31,9 @@ public class PostService {
         return res;
     }
 
-    public Response<Post> writePost(Map<String, Object> postObj) {
+    public Response<Post> writePost(Map<String, Object> postObj, String token) {
         Post post = objMpr.convertValue(postObj, Post.class);
+        post.setUserId(jwtProvider.getUserId(token));
         Response<Post> res = new Response<>();
 
         res.setData(postRepository.save(post));
