@@ -1,9 +1,6 @@
 package com.daelim.trinitycommunitybackend.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.sql.Timestamp;
@@ -18,5 +15,6 @@ public class Comment {
     private String userId;
     private Integer target;
     private String comment;
+    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp writeDate;
 }
